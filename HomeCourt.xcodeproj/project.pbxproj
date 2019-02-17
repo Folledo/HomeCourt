@@ -30,7 +30,6 @@
 		7EECE131221980110074E37B /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EECE130221980110074E37B /* NewMessageController.swift */; };
 		7EECE133221980340074E37B /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EECE132221980340074E37B /* ChatLogController.swift */; };
 		7EECE135221980560074E37B /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EECE134221980560074E37B /* ChatMessage.swift */; };
-		7EECE1392219833C0074E37B /* TopNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EECE1382219833C0074E37B /* TopNavigationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +58,6 @@
 		7EECE130221980110074E37B /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		7EECE132221980340074E37B /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		7EECE134221980560074E37B /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
-		7EECE1382219833C0074E37B /* TopNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationView.swift; sourceTree = "<group>"; };
 		A0F61D5D16FEA4A484EA7990 /* Pods-HomeCourt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCourt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeCourt/Pods-HomeCourt.debug.xcconfig"; sourceTree = "<group>"; };
 		F1274F55A10E53DF3E7C96D8 /* Pods_HomeCourt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeCourt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -101,7 +99,6 @@
 				7EECE0EC22195EF50074E37B /* Main */,
 				7EECE12522197E950074E37B /* Messages */,
 				7EECE11E22197E2E0074E37B /* UserProfile */,
-				7EECE137221983130074E37B /* Views */,
 				7EECE10522195EF70074E37B /* Model */,
 				7EECE0FC22195EF60074E37B /* Helpers */,
 				7EECE0EA22195EF50074E37B /* Extensions */,
@@ -220,14 +217,6 @@
 				7EECE134221980560074E37B /* ChatMessage.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7EECE137221983130074E37B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				7EECE1382219833C0074E37B /* TopNavigationView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		8C853DF1C97DF6DB999B0EF8 /* Pods */ = {
@@ -369,7 +358,6 @@
 				7EECE133221980340074E37B /* ChatLogController.swift in Sources */,
 				7EECE12922197EC40074E37B /* ChatInputContainerView.swift in Sources */,
 				7EECE135221980560074E37B /* ChatMessage.swift in Sources */,
-				7EECE1392219833C0074E37B /* TopNavigationView.swift in Sources */,
 				7EECE11922195EF80074E37B /* Court.swift in Sources */,
 				7EECE12F22197FF50074E37B /* MessagesController.swift in Sources */,
 				7EECE11422195EF80074E37B /* Service.swift in Sources */,
