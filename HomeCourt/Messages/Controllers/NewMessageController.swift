@@ -33,7 +33,7 @@ class NewMessageController: UITableViewController {
 	
 	func fetchUser() {
 		print("Fetching users.....")
-		Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+		Database.database().reference().child(kUSER).child("userInfo").observe(.childAdded, with: { (snapshot) in
 			print("user found") //will get printed out the same amount of times as the amount of users
 			//add users to an array
 			if let dictionary = snapshot.value as? [String: AnyObject] {

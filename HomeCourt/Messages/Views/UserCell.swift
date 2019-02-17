@@ -40,12 +40,12 @@ class UserCell: UITableViewCell { //is the UserCell we registered to our TableVi
 		
 		//ep.10 to get the name displayed instead of the uid
 		if let id = message?.chatPartnerId() { //ep.10 //ep.12 changed to chatPartnerId
-			let ref = Database.database().reference().child("users").child(id) //ep.10 //having the reference set here, now we can observe the value! //ep.11 userUid is changed to id from chatPartnerId in order to reference the right "profileImageUrl"
+			let ref = Database.database().reference().child(kUSER).child("userInfo").child(id) //ep.10 //having the reference set here, now we can observe the value! //ep.11 userUid is changed to id from chatPartnerId in order to reference the right "profileImageUrl"
 			
 			ref.observe(.value, with: { (snapshot) in //ep.10 observe the value and unwrap the dictionary
 				
 				if let dictionary = snapshot.value as? [String : AnyObject] {
-					let name = dictionary["name"] as? String
+					let name = dictionary["fullName"] as? String
 					
 					self.textLabel?.text = name //assign the textLabel
 					//                        cell.textLabel?.text = name //assign the name ep.10 //putting this didSet here in the UserCell from MEssagesController, we dont have to include the cell anymore, as well as for profileImageView

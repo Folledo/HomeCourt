@@ -134,7 +134,7 @@ class CurrentUser {
 				withBlock(error) //RE ep.110 3mins
 				return
 			}
-			DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { //it is important to have some DELAY
+			DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { //it is important to have some DELAY
 				let uid: String = firUser!.user.uid
 				fetchUserWith(userId: uid, completion: { (cUser) in //RE ep.110 //4mins after signing in, we need to download these user and save it to our local UserDefaults //5mins this method takes a user.uid, finds the user we want, converts it to FUser and returns it, so now we can save them
 					guard let user = cUser else { print("no user"); return }
@@ -194,15 +194,15 @@ func saveUserLocally(cUser: CurrentUser) {
 //MARK: Helper fuctions
 
 func fetchUserWith(userId: String, completion: @escaping (_ user: CurrentUser?) -> Void) {
-	let ref = firDatabase.child("user").queryOrdered(byChild: "userID").queryEqual(toValue: userId)
+	let ref = firDatabase.child(kUSER).child(userId).queryOrdered(byChild: kUSERID).queryEqual(toValue: userId)
 	
 	ref.observeSingleEvent(of: .value, with: { (snapshot) in //observe one value only. //.value = Any data changes at a location or, recursively, at any child node.
-		
+//		print(snapshot)
 		if snapshot.exists() { //if we find a user
 			let userDictionary = ((snapshot.value as! NSDictionary).allValues as NSArray).firstObject! as! NSDictionary
 			let user = CurrentUser(_dictionary: userDictionary) //assign
 			completion(user) //gives the user in completion
-			
+				
 		} else { //snapshot dont exist
 			completion(nil) //we dont have a user
 		}

@@ -14,10 +14,12 @@ import FirebaseDatabase
 class MessagesController: UITableViewController {
 	
 	let cellId = "cellId"
-	var timer: Timer? //ep.14 25mins reference for the timer so we can have a better table reloading and helps fix some bugs
+	var timer: Timer?
+	var user: CurrentUser?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		checkCurrentUser()
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backTapped))
 		
@@ -30,7 +32,7 @@ class MessagesController: UITableViewController {
 		navigationItem.rightBarButtonItem = newMessage
 		
 		
-		checkCurrentUser()
+		
 		
 		
 		tableView.allowsMultipleSelectionDuringEditing = true //ep.22 1min first thing you need to swipe delete messages
@@ -43,7 +45,7 @@ class MessagesController: UITableViewController {
 	var messagesDictionary = [String: ChatMessage]() //ep.10
 	
 	func observeUserMessages() { //ep.11
-		guard let currentUserUid = Auth.auth().currentUser?.uid else { return } //ep.11
+		guard let currentUserUid = self.user?.userID else { return }
 		
 		let ref = Database.database().reference().child("user-messages").child(currentUserUid)
 		ref.observe(.childAdded, with: { (snapshot) in //ep.11 11mins once we got the reference, then we can observe. The "user-messages" will have a child of the current user which has a child of the reference of all their messages from "messages"
@@ -169,7 +171,7 @@ class MessagesController: UITableViewController {
 		
 		let message = messages[indexPath.row] as ChatMessage //ep.12
 		let chatPartnerId = message.chatPartnerId() //ep.12
-		let ref = Database.database().reference().child("users").child(chatPartnerId) //ep.12
+		let ref = Database.database().reference().child(kUSER).child(chatPartnerId) //ep.12
 		
 		ref.observeSingleEvent(of: .value, with: { (snapshot) in //ep.12
 			//            print(snapshot)
@@ -233,15 +235,15 @@ class MessagesController: UITableViewController {
 	func fetchCurrentUserAndSetupNavBarTitle() {
 		if let uid = Auth.auth().currentUser?.uid { //unwrap the currentUser's uid
 			
-			print("UID = \(uid)")
-			Database.database().reference().child("users").child(uid).observe(.value, with: { (snapshot) in //listen for a single value, which is the current user
-				print("observed")
+//			print("UID = \(uid)")
+			Database.database().reference().child(kUSER).child("userInfo").child(uid).observe(.value, with: { (snapshot) in //listen for a single value, which is the current user
+				
 				if let dictionary = snapshot.value as? [String: AnyObject] {
 					//                    if let userName:String = dictionary["name"] as? String {
 					//                        print(userName)
 					//                        self.navigationItem.title = userName //set the title as the name from the snapshot //changed
-					
 					let user = CurrentUser(_dictionary: dictionary as NSDictionary)
+					print("USER is \(user)")
 					self.setupNavBarWithCurrentUser(user: user) //ep.7
 					
 				}
@@ -279,7 +281,7 @@ class MessagesController: UITableViewController {
 		profileImageView.contentMode = .scaleAspectFill
 		profileImageView.layer.cornerRadius = 20
 		profileImageView.clipsToBounds = true
-	profileImageView.loadImageUsingCacheWithUrlString(user.profilePic)
+		profileImageView.loadImageUsingCacheWithUrlString(user.profilePic)
 		
 		profileImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
 		profileImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true

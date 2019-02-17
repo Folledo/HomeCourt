@@ -57,9 +57,9 @@ class UserProfileTableViewController: UITableViewController {
 	
 	func createDataCell() {
 		
-		let data1 = CellData.init(image: #imageLiteral(resourceName: "updateProfilePicture"), message: "Update Profile Picture")
-		let data2 = CellData.init(image: #imageLiteral(resourceName: "exit"), message: "Logout")
-		let data3 = CellData.init(image: #imageLiteral(resourceName: "apple"), message: "About")
+		let data1 = CellData.init(image: UIImage(named: "profPicture"), message: "Update Profile Picture")
+		let data2 = CellData.init(image: UIImage(named: "exit"), message: "Logout")
+		let data3 = CellData.init(image: UIImage(named: "question"), message: "About")
 		
 		insertRowMode3(row: 0, cell: data1) {
 			self.insertRowMode3(row: 1, cell: data2, completion: {

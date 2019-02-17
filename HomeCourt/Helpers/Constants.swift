@@ -36,3 +36,4 @@ public let kPROFILEPIC = "profPic"
 public let kCURRENTUSER = "currentUser"
 public let kFAVORITECOURTS = "favoriteCourts"
 public let kMAINCOURT = "mainCourt"
+public let kFILEREFERENCE = "gs://homecourt-1dc84.appspot.com" //From Firebase Storage's gs code
