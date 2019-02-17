@@ -2,22 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow MyCourt to use your location</string>
-	<key>NSLocationUsageDescription</key>
-	<string>Please allow MyCourt to use your location</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Please allow MyCourt to use your location</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please allow MyCourt to use your location</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow MyCourt to use camera in order to take snap and send to a user</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please allow MyCourt to user photos from the PhotoLibrary in order to save time and choose an image to upload instead of taking a picture</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>MyCourt</string>
+	<string>KingOfTheCourt</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -34,6 +22,18 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow MyCourt to use camera in order to take snap and send to a user</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Please allow MyCourt to use your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please allow MyCourt to use your location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Please allow MyCourt to use your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow MyCourt to use your location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow MyCourt to user photos from the PhotoLibrary in order to save time and choose an image to upload instead of taking a picture</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
