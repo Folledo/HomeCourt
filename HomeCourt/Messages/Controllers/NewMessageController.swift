@@ -33,14 +33,15 @@ class NewMessageController: UITableViewController {
 	
 	func fetchUser() {
 		print("Fetching users.....")
-		Database.database().reference().child(kUSER).child("userInfo").observe(.childAdded, with: { (snapshot) in
+		Database.database().reference().child(kUSER).observe(.childAdded, with: { (snapshot) in
 			print("user found") //will get printed out the same amount of times as the amount of users
 			//add users to an array
+			print(snapshot)
 			if let dictionary = snapshot.value as? [String: AnyObject] {
 				let user = CurrentUser(_dictionary: dictionary as NSDictionary) //each user will be a brand new user
-				
+				print("DICTIOARY ISSSSS \(dictionary)")
 				//                user.setValuesForKeys(dictionary) //ep4 //17mins if u use this setter, your app will crash if your class properties dont exactly match up with the firebase dictionary keys
-				//to fix...
+				
 				user.fullName = dictionary[kFULLNAME] as! String
 				user.email = dictionary[kEMAIL] as! String
 				
